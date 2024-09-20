@@ -75,7 +75,7 @@ const submit = async () => {
             <VCol>
               <VTextField
                 label="Score"
-                type="number"
+                type="tel"
                 v-model="form.winnerScore"
               />
             </VCol>
@@ -93,7 +93,7 @@ const submit = async () => {
             <VCol>
               <VTextField
                 label="Score"
-                type="number"
+                type="tel"
                 v-model="form.loserScore"
               />
             </VCol>
