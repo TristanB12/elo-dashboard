@@ -72,7 +72,6 @@ const useSessionStore = defineStore('session', {
 
       await this.fetchUser();
       await playersStore.fetchPlayers();
-      
     }
   }
 })
