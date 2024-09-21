@@ -1,9 +1,12 @@
 <script setup>
+import useSessionStore from '@/plugins/store/session';
 import DefaultLayoutWithVerticalNav from './components/DefaultLayoutWithVerticalNav.vue'
+
+const sessionStore = useSessionStore();
 </script>
 
 <template>
-  <DefaultLayoutWithVerticalNav>
+  <DefaultLayoutWithVerticalNav v-if="sessionStore.isLoaded">
     <RouterView />
   </DefaultLayoutWithVerticalNav>
 </template>

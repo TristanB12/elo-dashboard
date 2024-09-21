@@ -92,8 +92,7 @@ const resolveRowClass = (player) => {
             variant="tonal"
           >
             <VImg
-              v-if="avatar1"
-              :src="avatar1"
+              :src="item.avatar_url || avatar1"
             />
           </VAvatar>
 

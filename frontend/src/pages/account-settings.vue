@@ -10,20 +10,20 @@ const activeTab = ref(route.params.tab)
 // tabs
 const tabs = [
   {
-    title: 'Account',
+    title: 'Compte',
     icon: 'ri-group-line',
     tab: 'account',
   },
-  {
-    title: 'Security',
-    icon: 'ri-lock-line',
-    tab: 'security',
-  },
-  {
-    title: 'Notifications',
-    icon: 'ri-notification-3-line',
-    tab: 'notification',
-  },
+  // {
+  //   title: 'Sécurité',
+  //   icon: 'ri-lock-line',
+  //   tab: 'security',
+  // },
+  // {
+  //   title: 'Notifications',
+  //   icon: 'ri-notification-3-line',
+  //   tab: 'notification',
+  // },
 ]
 </script>
 

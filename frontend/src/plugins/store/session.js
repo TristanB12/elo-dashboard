@@ -8,6 +8,7 @@ const useSessionStore = defineStore('session', {
     refresh_token: null,
     expires_at: null,
     user: null,
+    isLoaded: false,
   }),
 
   getters: {
@@ -16,6 +17,11 @@ const useSessionStore = defineStore('session', {
     },
     isTokenExpired() {
       return (this.expires_at * 1000) < Date.now();
+    },
+    userProfile() {
+      const playersStore = usePlayersStore();
+
+      return playersStore.players.find(player => player.user_id === this.user.id);
     }
   },
 
@@ -47,6 +53,7 @@ const useSessionStore = defineStore('session', {
           await this.fetchAll();
         }
       }
+      this.isLoaded = true;
     },
     async fetchUser() {
       const response = await supabase.auth.getUser(this.access_token);
@@ -72,6 +79,7 @@ const useSessionStore = defineStore('session', {
 
       await this.fetchUser();
       await playersStore.fetchPlayers();
+      this.isLoaded = true;
     }
   }
 })

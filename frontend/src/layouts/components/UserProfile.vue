@@ -13,6 +13,8 @@ const logout = () => {
 };
 
 const username = computed(() => sessionStore?.user.user_metadata.username);
+
+const avatar = computed(() => sessionStore.userProfile.avatar_url || avatar1);
 </script>
 
 <template>
@@ -29,7 +31,7 @@ const username = computed(() => sessionStore?.user.user_metadata.username);
       color="primary"
       variant="tonal"
     >
-      <VImg :src="avatar1" />
+      <VImg :src="avatar" />
 
       <!-- SECTION Menu -->
       <VMenu
@@ -81,7 +83,10 @@ const username = computed(() => sessionStore?.user.user_metadata.username);
           </VListItem>
 
           <!-- 👉 Settings -->
-          <VListItem link>
+          <VListItem
+            link
+            to="account"
+          >
             <template #prepend>
               <VIcon
                 class="me-2"

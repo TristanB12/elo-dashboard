@@ -39,6 +39,12 @@ const resolveUsername = id => {
     'Inconnu';
 };
 
+const resolveAvatar = id => {
+  const player = playersStore.players.find(player => player.user_id === id);
+  return player ? player.avatar_url || avatar1 :
+    avatar1;
+};
+
 </script>
 
 <template>
@@ -57,8 +63,7 @@ const resolveUsername = id => {
             variant="tonal"
           >
             <VImg
-              v-if="avatar1"
-              :src="avatar1"
+              :src="resolveAvatar(item.winner_id)"
             />
           </VAvatar>
           <h6 class="text-h6 font-weight-bold user-list-name">
@@ -81,8 +86,7 @@ const resolveUsername = id => {
             variant="tonal"
           >
             <VImg
-              v-if="avatar1"
-              :src="avatar1"
+              :src="resolveAvatar(item.loser_id)"
             />
           </VAvatar>
           <h6 class="text-h6 font-weight-medium user-list-name">

@@ -20,6 +20,10 @@ export const routes = [
       {
         path: 'dashboard',
         component: () => import('@/pages/dashboard.vue'),
+      },
+      {
+        path: 'account',
+        component: () => import('@/pages/account-settings.vue'),
       }
     ],
   },
